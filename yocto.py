@@ -22,11 +22,23 @@ class MainPageHandler( BaseHandler ):
     """Handler for the main page"""
 
     def get(self):
-        self.posts = dbModels.Post.get_all_posts() 
+        posts = dbModels.Post.get_all_posts() 
         self.render_response('mainpage.html', posts = self.posts)
   
     def post(self):
-        pass
+        
+        title = self.request.get('title')
+        content = self.request.get('content')
+        author = self.request.get('author')
+
+        if title and content and author:
+            post_entry = dbModels.Post( title = title, content = content,
+                            author = author )
+            post.put()
+
+        self.redirect('/')
+
+
 
 
 
