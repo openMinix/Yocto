@@ -48,8 +48,5 @@ class MainPageHandler( BaseHandler ):
 
 
 
-
-
-
 app = webapp2.WSGIApplication( [ ('/', MainPageHandler )
                                 ], debug=True )

@@ -8,7 +8,7 @@ class Post(db.Model):
     title   = db.StringProperty()
     author  = db.StringProperty()
     date    = db.DateTimeProperty( auto_now_add = True )
-    votes   = db.IntegerProperty()
+    votes   = db.IntegerProperty( default = 0 )
 
     @classmethod
     def get_by_name(cls, name):

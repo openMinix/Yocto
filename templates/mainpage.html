@@ -3,8 +3,11 @@
 <head>
   <title>Yocto</title>
   <link href="../css/yocto_style.css" rel="stylesheet" type="text/css" />
+  <link href="../css/democracy.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="../js/limit_input.js"></script>
+  <script type="text/javascript" src="../js/jquery.js"></script>
 </head>
+
 
 <body>
   <div id="navbar">
@@ -18,14 +21,14 @@
       {% endfor %}
     </div>
     <div id="related">
-		{% for link in links%}
-		<a href = {{ link }}>
-			{{ link }}
-		</a>
-		<p>	{{ contents[links.index(link)] | safe}}</p>
-		{% endfor %}
-
+    {% for link in links%}
+      <a href = {{ link }}>
+      {{ link }}
+      </a>
+      <p> {{ contents[links.index(link)] | safe}}</p>
+    {% endfor %}
     </div>
+
     <form method="post" id="input">
         <textarea rows="1" name="content" id="content"
         onkeydown="limitText(this.form.content, this.form.countdown, 100);"
