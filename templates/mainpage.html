@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Yocto</title>
-  <link href="../css/yocto_style.css" rel="stylesheet" type="text/css" /
+  <link href="../css/yocto_style.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="../js/limit_input.js"></script>
 </head>
 
@@ -21,10 +21,12 @@
         this is some text in the related div
     </div>
     <form method="post" id="input">
-        <textarea rows="1" name="content" id="content">
+        <textarea rows="1" name="content" id="content"
+        onkeydown="limitText(this.form.content, this.form.countdown, 100);"
+        onkeyup="limitText(this.form.content, this.form.countdown, 100);">
         ceva</textarea>
-        <!--<input readonly type="text" name="countdown" size="3"
-        value="100">-->
+        <input readonly type="text" name="countdown" size="3"
+        value="100">
         </br>
         <label>title:</label> <input type="text" name="title" id="title">
         <label>author:</label> <input type="text" name="author" id="title">
