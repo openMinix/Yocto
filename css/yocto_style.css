@@ -75,3 +75,8 @@ input {
   font-family: monospace;
   font-size: 15px;
 }
+
+.date-and-author {
+  text-align: right;
+  font-size: 10;
+}
