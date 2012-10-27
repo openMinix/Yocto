@@ -11,4 +11,21 @@ class Post(db.Model):
     @classmethod
     def get_by_name(cls, name):
         return cls.all().filter("name =", name).get()
+    
+    @classmethod
+    def get_all_posts(cls):
+        """Returns all posts"""
+        return cls.all()
 
+    @classmethod
+    def get_popular_posts( votes ):
+        """Returns posts with more votes than ' votes '""" 
+        self.votes = int(votes)
+        return cls.all().filter("votes >", votes )
+
+   
+   @classmethod
+    def get_unpopular_posts( votes ):
+        """Returns posts with less votes than ' votes '"""
+        self.votes = int(votes)
+        return cls.all().filter( "votes <", vote )
