@@ -18,7 +18,13 @@
       {% endfor %}
     </div>
     <div id="related">
-        this is some text in the related div
+		{% for link in links%}
+		<a href = {{ link }}>
+			{{ link }}
+		</a>
+		<p>	{{ contents[links.index(link)] | safe}}</p>
+		{% endfor %}
+
     </div>
     <form method="post" id="input">
         <textarea rows="1" name="content" id="content"

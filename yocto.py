@@ -22,11 +22,18 @@ class MainPageHandler( BaseHandler ):
     """Handler for the main page"""
 
     def get(self):
-        posts = dbModels.Post.get_all_posts() 
-        self.render_response('mainpage.html', posts = posts)
-  
+        posts = dbModels.Post.get_all_posts().order('-date')
+        links = []
+        contents = []
+
+        for post in posts[0 : 3]:
+            request = commonUtils.Request(post.title)
+            links += request.get_links()
+            contents += request.get_content()
+        self.render_response('mainpage.html', posts = posts,
+            links = links, contents = contents)
+
     def post(self):
-        
         title = self.request.get('title')
         content = self.request.get('content')
         author = self.request.get('author')
@@ -37,6 +44,8 @@ class MainPageHandler( BaseHandler ):
             post_entry.put()
 
         self.redirect('/')
+
+
 
 
 
