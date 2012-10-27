@@ -22,9 +22,15 @@ div {
 
 
 #conversations {
+  float: left;
   color: black;
+  border: 1px solid black;
+  width: 65%;
 }
 
 #related {
+  float: right;
   color: yellow;
+  border: 1px solid grey;
+  width: 34%;
 }
