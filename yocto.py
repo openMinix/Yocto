@@ -45,8 +45,13 @@ class MainPageHandler( BaseHandler ):
 
         self.redirect('/')
 
+class VoteHandler( BaseHandler ):
+    """Handles voting"""
+
+    def get(self):
+        pass
 
 
-
-app = webapp2.WSGIApplication( [ ('/', MainPageHandler )
+app = webapp2.WSGIApplication( [ ('/', MainPageHandler ),
+                                 ('/vote', VoteHandler )
                                 ], debug=True )
