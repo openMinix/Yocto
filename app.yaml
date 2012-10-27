@@ -7,6 +7,9 @@ threadsafe: false
 
 handlers:
 
+- url: /css
+  static_dir: css
+
 - url: /.*
   script: yocto.app
 
