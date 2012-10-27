@@ -23,9 +23,9 @@
     <form method="post" id="input">
         <textarea rows="1" name="content" id="content"
         onkeydown="limitText(this.form.content, this.form.countdown, 100);"
-        onkeyup="limitText(this.form.content, this.form.countdown, 100);">
-        ceva</textarea>
-        <input readonly type="text" name="countdown" size="3"
+        onkeyup="limitText(this.form.content, this.form.countdown,
+        100);"></textarea>
+        <input readonly type="text" id="countdown" size="3"
         value="100">
         </br>
         <label>title:</label> <input type="text" name="title" id="title">
@@ -37,4 +37,5 @@
     this is the footer
   </div>
 </body>
+  <script type="text/javascript" src="../js/onload.js"></script>
 </html>
