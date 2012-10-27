@@ -23,8 +23,7 @@ class Post(db.Model):
         self.votes = int(votes)
         return cls.all().filter("votes >", votes )
 
-   
-   @classmethod
+    @classmethod
     def get_unpopular_posts( votes ):
         """Returns posts with less votes than ' votes '"""
         self.votes = int(votes)
