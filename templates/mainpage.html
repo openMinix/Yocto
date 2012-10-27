@@ -6,16 +6,28 @@
 </head>
 
 <body>
-  <div id="body_div">
-    <div id="navbar">
+  <div id="navbar">
         this is some text in the navbar
-    </div>
+  </div>
+  <div id="body_div">
     <div id="conversations">
-        this is some text in the conversations div
+      {% for post in posts %}
+        {{ post.render() | safe }}
+        <br/><br/><hr/>
+      {% endfor %}
     </div>
     <div id="related">
         this is some text in the related div
     </div>
+  </div>
+  <form method="post" id="input">
+      <textarea rows="1" cols="50" name="content">sometext</textarea>
+      <label>title:</label> <input type="text" name="title">
+      <label>author:</label> <input type="text" name="author">
+      <input type="submit" value="submit">
+  </form>
+  <div id="footer">
+    this is the footer
   </div>
 </body>
 </html>

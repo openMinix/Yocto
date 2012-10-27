@@ -1,7 +1,7 @@
 import webapp2
 import jinja2
-import models.dbModels
-import utils.commonUtils
+from models import dbModels
+from utils import commonUtils
 
 jinja_env = jinja2.Environment( loader =
     jinja2.FileSystemLoader('./templates/'), autoescape = True )
@@ -14,16 +14,19 @@ class BaseHandler( webapp2.RequestHandler ):
     def render_response( self, template, **kwargs):
         """ Renders the template 'template' with the values from kwargs"""
 
-        self.response.out.write( commonUtils.render_template( template, **kwargs
-) )
-
+        rendered_page = commonUtils.render_template( template, **kwargs )
+        self.response.out.write( rendered_page )
 
 
 class MainPageHandler( BaseHandler ):
     """Handler for the main page"""
 
     def get(self):
-        self.render_response ( 'mainpage.html')
+        self.posts = dbModels.Post.get_all_posts() 
+        self.render_response('mainpage.html', posts = self.posts)
+  
+    def post(self):
+        pass
 
 
 
