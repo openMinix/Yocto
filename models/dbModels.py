@@ -1,6 +1,6 @@
 from google.appengine.ext import db
 import datetime
-import utils.commonUtils
+from utils import commonUtils
 
 
 class Post(db.Model):

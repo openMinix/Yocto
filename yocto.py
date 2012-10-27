@@ -22,7 +22,11 @@ class MainPageHandler( BaseHandler ):
     """Handler for the main page"""
 
     def get(self):
-        self.render_response( 'mainpage.html')
+        self.posts = dbModels.Post.get_all_posts() 
+        self.render_response('mainpage.html', posts = self.posts)
+  
+    def post(self):
+        pass
 
 
 
