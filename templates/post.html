@@ -1,0 +1,26 @@
+<article id="{{ post.key().id() }}" class="post">
+
+<div class="post-entry">
+  <div class="title">
+    <h2>
+      {{ post.title }}
+    </h2>
+  </div>
+  
+  <div class="content">
+    <pre>
+      {{ post.content }}
+    </pre>
+  </div>
+  <div class="date">
+    <p> Added at: {{ post.date.strftime("%b %d, %Y %H %M)}} </p>
+  </div>
+  <div class="author">
+    <p> From {{ post.author }} </p>
+  </div>
+</div>
+
+</ article >
+    
+
+
