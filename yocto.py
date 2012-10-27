@@ -1,6 +1,7 @@
 import webapp2
 import jinja2
 import models.dbModels
+import utils.commonUtils
 
 jinja_env = jinja2.Environment( loader =
     jinja2.FileSystemLoader('./templates/'), autoescape = True )
@@ -13,10 +14,8 @@ class BaseHandler( webapp2.RequestHandler ):
     def render_response( self, template, **kwargs):
         """ Renders the template 'template' with the values from kwargs"""
 
-        page_template = jinja_env.get_template( template )
-        rendered_page = page_template.render( **kwargs )
-        self.response.out.write( rendered_page )
-
+        self.response.out.write( commonUtils.render_template( template, **kwargs
+) )
 
 
 
