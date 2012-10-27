@@ -1,5 +1,6 @@
 from google.appengine.ext import db
 import datetime
+import utils.commonUtils
 
 
 class Post(db.Model):
@@ -31,4 +32,5 @@ class Post(db.Model):
         return cls.all().filter( "votes <", vote )
     
     def render(self):
-        return comm
+        return commonUtils.render_template('post.html', post = self )
+
