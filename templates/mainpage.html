@@ -2,7 +2,8 @@
 <html>
 <head>
   <title>Yocto</title>
-  <link href="../css/yocto_style.css" rel="stylesheet" type="text/css" />
+  <link href="../css/yocto_style.css" rel="stylesheet" type="text/css" /
+  <script type="text/javascript" src="../js/limit_input.js"></script>
 </head>
 
 <body>
@@ -19,13 +20,17 @@
     <div id="related">
         this is some text in the related div
     </div>
+    <form method="post" id="input">
+        <textarea rows="1" name="content" id="content">
+        ceva</textarea>
+        <!--<input readonly type="text" name="countdown" size="3"
+        value="100">-->
+        </br>
+        <label>title:</label> <input type="text" name="title" id="title">
+        <label>author:</label> <input type="text" name="author" id="title">
+        <input type="submit" value="submit" id="submit">
+    </form>
   </div>
-  <form method="post" id="input">
-      <textarea rows="1" cols="50" name="content">sometext</textarea>
-      <label>title:</label> <input type="text" name="title">
-      <label>author:</label> <input type="text" name="author">
-      <input type="submit" value="submit">
-  </form>
   <div id="footer">
     this is the footer
   </div>
