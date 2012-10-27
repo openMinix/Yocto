@@ -1,16 +1,7 @@
-import yocto
 import re
 import json
 import urllib2
 import simplejson
-
-def render_template( template, **kwargs):
-    """Renders the template with the given parameters """
-
-    page_template = yocto.jinja_env.get_template( template )
-    rendered_page = page_template.render ( **kwargs )
-
-    return rendered_page
 
 
 class Request(object):
@@ -19,6 +10,7 @@ class Request(object):
         self.create_list()
         self.create_request()
         self.get_results()
+
 
     def create_list(self):
         re.sub(' +', ' ', self.text)
@@ -54,10 +46,7 @@ class Request(object):
     def get_content(self):
         return self.content
 
-
-
-
-
-
-
+a = Request("Paris Hilton")
+print a.get_links()
+print a.get_content()
 
