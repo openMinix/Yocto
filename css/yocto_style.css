@@ -1,15 +1,25 @@
 body {
-  background-color: red;
+  
 }
 
 div {
-  background-color: green;
-  border: 1px 2px 3px 4px;
+}
+
+#body_div {
+  margin-left: auto;
+  margin-right: auto;
+  width : 800px;
 }
 
 #navbar {
-  color: blue;
+    *position: relative;
+    *z-index: 2;
+    margin-bottom: 20px;
+    overflow: visible;
+    background-color: black;
+    color: #777777;
 }
+
 
 #conversations {
   color: black;
