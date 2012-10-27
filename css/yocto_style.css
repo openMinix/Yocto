@@ -44,12 +44,34 @@ div {
   margin-bottom: 10px;
 }
 
+textarea, textarea:focus {
+  border: none;
+  resize: none;
+  outline: none;
+  outline: 0;
+}
+
 #content {
   width: 95%;
+}
+
+input {
+  border: none;
+  outline: none;
+  outline: 0;
+}
+
+#countdown {
+  vertical-align: super;
 }
 
 #footer {
   margin-top: 0px -10px 0px -10px;
   border: 2px dotted red;
   clear: both;
+}
+
+* {
+  font-family: monospace;
+  font-size: 15px;
 }
