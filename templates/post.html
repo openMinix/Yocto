@@ -16,17 +16,14 @@
       {{ post.title }}
     </h2>
   </div>
-  
+
   <div class="content">
     <pre>
       {{ post.content }}
     </pre>
   </div>
-  <div class="date">
-    <p> Added at: {{ post.date.strftime("%d %b  %Y, %H:%M ") }} </p>
-  </div>
-  <div class="author">
-    <p> From {{ post.author }} </p>
+  <div class="date-and-author">
+    by {{ post.author }} at {{ post.date.strftime("%d %b  %Y, %H:%M ") }}
   </div>
 </div>
 
