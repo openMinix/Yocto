@@ -12,3 +12,4 @@ class Post(db.Model):
     def get_by_name(cls, name):
         return cls.all().filter("name =", name).get()
 
+
