@@ -23,7 +23,7 @@ class MainPageHandler( BaseHandler ):
 
     def get(self):
         posts = dbModels.Post.get_all_posts() 
-        self.render_response('mainpage.html', posts = self.posts)
+        self.render_response('mainpage.html', posts = posts)
   
     def post(self):
         
@@ -34,7 +34,7 @@ class MainPageHandler( BaseHandler ):
         if title and content and author:
             post_entry = dbModels.Post( title = title, content = content,
                             author = author )
-            post.put()
+            post_entry.put()
 
         self.redirect('/')
 

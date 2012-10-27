@@ -7,7 +7,7 @@ class Post(db.Model):
     content = db.TextProperty()
     title   = db.StringProperty()
     author  = db.StringProperty()
-    date    = db.DateTimeProperty()
+    date    = db.DateTimeProperty( auto_now_add = True )
     votes   = db.IntegerProperty()
 
     @classmethod
