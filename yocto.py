@@ -30,6 +30,7 @@ class MainPageHandler( BaseHandler ):
             request = commonUtils.Request(post.title)
             links += request.get_links()
             contents += request.get_content()
+
         self.render_response('mainpage.html', posts = posts,
             links = links, contents = contents)
 
@@ -62,6 +63,28 @@ class VoteHandler( BaseHandler ):
         self.response.out.write( str( post.votes ) )
 
 
+class UpdateHandler( BaseHandler ):
+    """Handles posts update """
+
+    def get(self):
+        if self.request.get('latest_post') == "":
+            self.response.out.write("")
+
+        latest_post_id = int( self.request.get('latest_post') )
+        latest_post = dbModels.Post.get_by_id( latest_post_id )
+        
+        
+        posts = dbModels.Post.all().filter(" date > ", latest_post.date ).order("-date")
+        
+        response_text = ""
+        
+        for post in posts:
+            response_text += post.render()
+
+        self.response.out.write( response_text )
+
+
 app = webapp2.WSGIApplication( [ ('/', MainPageHandler ),
-                                 ('/vote', VoteHandler )
+                                 ('/vote', VoteHandler ),
+                                 ('/update', UpdateHandler)
                                 ], debug=True )

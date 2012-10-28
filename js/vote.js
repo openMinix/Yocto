@@ -1,3 +1,19 @@
+$(document).ready( setInterval( function (){
+       
+      var current_posts = $("#conversations").html();
+      var latest_post = $($("#conversations").children("article")[0]).attr("id");
+      $.ajax({
+          url: "/update",
+          type: "GET",
+          data: { latest_post : latest_post },
+          dataType: "text",
+          success: function(result){
+            $("#conversations").html( result + current_posts );
+          }      
+     }); 
+}, 10000));
+
+
 $(document).ready( function (){
    $(".btn-vote_up").click( function() {
       
