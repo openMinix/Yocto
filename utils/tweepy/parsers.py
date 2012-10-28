@@ -7,7 +7,7 @@ import re
 from datetime import datetime
 import time
 
-from tweepy.models import models
+from models import models
 
 def _parse_cursor(obj):
 

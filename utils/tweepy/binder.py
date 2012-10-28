@@ -6,8 +6,8 @@ import httplib
 import urllib
 import time
 
-from tweepy.parsers import parse_error
-from tweepy.error import TweepError
+from parsers import parse_error
+from error import TweepError
 
 try:
     import json #Python >= 2.6

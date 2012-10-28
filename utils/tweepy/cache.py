@@ -20,7 +20,7 @@ except ImportError:
     # TODO: use win32file
     pass
 
-from tweepy import memcache
+import memcache
 
 
 class Cache(object):
