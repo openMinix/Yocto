@@ -16,7 +16,8 @@ div {
     *position: relative;
     *z-index: 2;
     margin: -10px -10px 20px -10px;
-    overflow: visible;
+    padding: 5px 0px 5px 0px;
+    text-align: center;
     background-color: black;
     color: #777777;
 }
@@ -24,22 +25,20 @@ div {
 
 #conversations {
   color: black;
-  border: 1px solid black;
   float: left;
   width: 65%;
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   height: 80%;
 }
 
 #related {
   float: right;
   width: 30%;
-  color: yellow;
-  border: 1px solid grey;
   padding: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   height: 80%;
+  overflow: hidden;
 }
 
 #input {
