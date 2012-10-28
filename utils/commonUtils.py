@@ -3,6 +3,10 @@ import re
 import json
 import urllib2
 import simplejson
+import twitter
+import OauthAccess
+import OauthRequest
+import tweepy
 
 def render_template( template, **kwargs):
     """Renders the template with the given parameters """
@@ -11,6 +15,19 @@ def render_template( template, **kwargs):
     rendered_page = page_template.render ( **kwargs )
 
     return rendered_page
+
+def search(text):
+    result = []
+    request = OauthRequest.OauthRequest()
+    request.GetRequest()
+    access = OauthAccess.OauthAccess(request.mOauthRequestToken, request.mOauthRequestUrl)
+
+    api = tweepy.API()
+    for tweet in api.search(text):
+        result.append(tweet.__getstate__()["text"])
+
+    return result
+
 
 
 class Request(object):
