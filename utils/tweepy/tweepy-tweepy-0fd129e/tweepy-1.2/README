@@ -1,0 +1,48 @@
+  ______                                   
+ /_  __/_      __ ___   ___   ____   __  __
+  / /  | | /| / // _ \ / _ \ / __ \ / / / /
+ / /   | |/ |/ //  __//  __// /_/ // /_/ / 
+/_/    |__/|__/ \___/ \___// .___/ \__, /  
+                          /_/     /____/ 
+
+A Twitter library for Python! Also works with identi.ca/laconi.ca !
+
+Features:
+  + OAuth support
+  + Up-to-date with Twitter API
+  + Actively under development
+  + Streaming API support
+  + Cache system (memory, file, memcache)
+  + Python 3 branch (3.1)
+
+Getting started:
+  Check out the tutorial folder to get started with Tweepy.
+  Also feel free to join us on the mailing list or chat room.
+
+Mailing list: http://groups.google.com/group/tweepy
+Chat: IRC freenode.net #tweepy
+      Web interface: http://webchat.freenode.net/?channels=tweepy
+Wiki: http://code.google.com/p/tweepy/w
+
+Installing:  
+  Using easy_install:
+    easy_install tweepy
+  You may also install from the repository:
+    git clone git://github.com/joshthecoder/tweepy.git
+    cd tweepy
+    python setup.py install
+
+Souce code: http://github.com/joshthecoder/tweepy
+Bug tracker: http://github.com/joshthecoder/tweepy/issues 
+
+Author: Joshua Roesslein
+License: MIT
+Dependencies:
+  Python 2.4 or newer
+  Simplejson <http://undefined.org/python/#simplejson>
+    **Included in python 2.6+
+  Python-OAuth <http://code.google.com/p/oauth>
+    **Bundled with this library
+  python-memcached <http://www.tummy.com/Community/software/python-memcached/>
+    **Bundled with this library
+
