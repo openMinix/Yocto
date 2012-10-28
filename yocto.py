@@ -59,7 +59,7 @@ class VoteHandler( BaseHandler ):
         post.vote( sign )
         post.put()
 
-        self.response.out.write( str( votes ) )
+        self.response.out.write( str( post.votes ) )
 
 
 app = webapp2.WSGIApplication( [ ('/', MainPageHandler ),
