@@ -1,5 +1,5 @@
-body {
-  
+body, html {
+  height: 100%;
 }
 
 div {
@@ -9,6 +9,7 @@ div {
   margin-left: auto;
   margin-right: auto;
   width : 1000px;
+  height: 100%;
 }
 
 #navbar {
@@ -28,6 +29,7 @@ div {
   width: 65%;
   padding: 10px;
   margin-bottom: 10px;
+  height: 80%;
 }
 
 #related {
@@ -37,6 +39,7 @@ div {
   border: 1px solid grey;
   padding: 5px;
   margin-bottom: 10px;
+  height: 80%;
 }
 
 #input {
@@ -66,8 +69,10 @@ input {
 }
 
 #footer {
-  margin-top: 0px -10px 0px -10px;
-  border: 2px dotted red;
+  margin: 0px  auto 0px auto;
+  width: 1000px;
+  border-top: 1px solid gray;
+  padding-top: 5px;
   clear: both;
 }
 
