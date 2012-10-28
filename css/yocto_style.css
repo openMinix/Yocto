@@ -78,5 +78,11 @@ input {
 
 .date-and-author {
   text-align: right;
-  font-size: 10;
+  font-size: 10px;
+}
+
+.content {
+  word-wrap: break-word;
+  width: 95%;
+  margin: 5px auto 5px auto;
 }
