@@ -22,12 +22,16 @@
       {% endfor %}
     </div>
     <div id="related">
-    {% for link in links%}
-      <a href = {{ link }}>
-      {{ link }}
-      </a>
-      <p> {{ contents[links.index(link)] | safe}}</p>
-    {% endfor %}
+      <div id="tweets">
+      </div>
+      <div id="google-results">
+        {% for link in links%}
+        <a href = {{ link }} class="link">
+        {{ link }}
+        </a>
+        <p class="link-content"> {{ contents[links.index(link)] | safe}}</p>
+        {% endfor %}
+      </div>
     </div>
 
     <form method="post" id="input">
