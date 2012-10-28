@@ -2,15 +2,37 @@ $(document).ready( setInterval( function (){
        
       var current_posts = $("#conversations").html();
       var latest_post = $($("#conversations").children("article")[0]).attr("id");
+    //  var old_child = $($("conversations").children("article").length;
+
       $.ajax({
           url: "/update",
           type: "GET",
-          data: { latest_post : latest_post },
+          data: {links:"no", latest_post : latest_post },
           dataType: "text",
           success: function(result){
+
+                  $.ajax({
+                     url: "/update",
+                     type: "GET",
+                     data: { links : "yes" },
+                     dataType: "text",
+                     success: function(result){
+                    $("#google-results").html( result );
+                     }      
+                   });
+
             $("#conversations").html( result + current_posts );
           }      
      }); 
+      
+    //  var new_child = $($("conversations").children("article").length;
+    //  var diff_child = new_child - old_child;
+
+    //  var current_links= $("#google-results").html();
+     // var latest_post = $($("#conversations").children("article")[0]).attr("id");
+ 
+      
+      
 }, 10000));
 
 

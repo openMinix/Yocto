@@ -23,14 +23,12 @@
     </div>
     <div id="related">
       <div id="tweets">
+      {% for tweet in tweets %}
+      <p> tweet </p>
+      {% endfor %}
       </div>
       <div id="google-results">
-        {% for link in links%}
-        <a href = {{ link }} class="link">
-        {{ link }}
-        </a>
-        <p class="link-content"> {{ contents[links.index(link)] | safe}}</p>
-        {% endfor %}
+      {{ results }}
       </div>
     </div>
 

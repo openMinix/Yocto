@@ -26,13 +26,17 @@ class MainPageHandler( BaseHandler ):
         links = []
         contents = []
 
+        results = ""
         for post in posts[0 : 3]:
             request = commonUtils.Request(post.title)
+       #     tweets = commonUtils.search ( post.title )
             links += request.get_links()
             contents += request.get_content()
+            results = commonUtils.render_template('google_results.html',
+                links = links, contents = contents )
 
         self.render_response('mainpage.html', posts = posts,
-            links = links, contents = contents)
+            results = results )
 
     def post(self):
         title = self.request.get('title')
@@ -67,21 +71,37 @@ class UpdateHandler( BaseHandler ):
     """Handles posts update """
 
     def get(self):
-        if self.request.get('latest_post') == "":
+        if self.request.get('links') == "yes":
+            posts = dbModels.Post.get_all_posts().order('-date')
+            links = []
+            contents = []
+
+            for post in posts[0 : 3]:
+                request = commonUtils.Request(post.title)
+                links += request.get_links()
+                contents += request.get_content()
+
+            self.render_response('google_results.html', 
+            links = links, contents = contents)
+   
+
+        elif self.request.get('latest_post') == "":
             self.response.out.write("")
+        else:
+            latest_post_id = int( self.request.get('latest_post') )
+            latest_post = dbModels.Post.get_by_id( latest_post_id )
+        
+        
+            posts = dbModels.Post.all().filter(" date > ", latest_post.date ).order("-date")
+        
+            response_text = ""
+        
+            for post in posts:
+                response_text += post.render()
 
-        latest_post_id = int( self.request.get('latest_post') )
-        latest_post = dbModels.Post.get_by_id( latest_post_id )
-        
-        
-        posts = dbModels.Post.all().filter(" date > ", latest_post.date ).order("-date")
-        
-        response_text = ""
-        
-        for post in posts:
-            response_text += post.render()
+            self.response.out.write( response_text )
 
-        self.response.out.write( response_text )
+
 
 
 app = webapp2.WSGIApplication( [ ('/', MainPageHandler ),

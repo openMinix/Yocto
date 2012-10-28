@@ -8,6 +8,8 @@ import OauthAccess
 import OauthRequest
 import tweepy
 
+from google.appengine.api import urlfetch
+
 def render_template( template, **kwargs):
     """Renders the template with the given parameters """
 
@@ -56,11 +58,14 @@ class Request(object):
 
     def get_results(self):
         request = urllib2.Request(self.url)
-        response = urllib2.urlopen(request)
+
+#        response = urllib2.urlopen(request)
+        response = urlfetch.fetch(self.url).content
         self.links = []
         self.content = []
 
-        results = simplejson.load(response)
+        results = json.loads(response)
+
         if results != None and results["responseData"] != None:
             for value in results["responseData"]["results"]:
                 self.links.append(value["url"])
