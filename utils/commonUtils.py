@@ -59,12 +59,12 @@ class Request(object):
     def get_results(self):
         request = urllib2.Request(self.url)
 
-#        response = urllib2.urlopen(request)
-        response = urlfetch.fetch(self.url).content
+        response = urllib2.urlopen(request)
+        #response = urlfetch.fetch(self.url).content
         self.links = []
         self.content = []
 
-        results = json.loads(response)
+        results = simplejson.load(response)
 
         if results != None and results["responseData"] != None:
             for value in results["responseData"]["results"]:

@@ -1,0 +1,8 @@
+{% for link in links %}
+<a href = {{ link }} class="link">
+  {{ link }}
+</a>
+
+<p class="link-content"> {{ contents[links.index(link)] | safe }} </p>
+{% endfor %}
+

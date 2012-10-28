@@ -2,6 +2,7 @@ import webapp2
 import jinja2
 from models import dbModels
 from utils import commonUtils
+from google.appengine.api import users
 
 jinja_env = jinja2.Environment( loader =
     jinja2.FileSystemLoader('./templates/'), autoescape = True )
@@ -103,8 +104,28 @@ class UpdateHandler( BaseHandler ):
 
 
 
+class LoginHandler(BaseHandler):
 
+    def get(self):
+        user = users.get_current_user()
+      
+        if not user:
+            self.redirect (users.create_login_url('/' ))
+        else:
+            self.redirect ('/')
+
+
+class LogoutHandler(BaseHandler):        
+    def get(self):
+        user = users.get_current_user()
+        
+        if user:
+            self.redirect (users.create_logout_url('/'))
+        else:
+            self.redirect('/')
 app = webapp2.WSGIApplication( [ ('/', MainPageHandler ),
                                  ('/vote', VoteHandler ),
+                                 ('/login', LoginHandler ),
+                                 ('/logout', LogoutHandler ),
                                  ('/update', UpdateHandler)
                                 ], debug=True )

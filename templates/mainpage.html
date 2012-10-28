@@ -12,8 +12,10 @@
 
 <body>
   <div id="navbar">
-        this is some text in the navbar
+       <a href= /login > Login! </a> 
+       <a href= /logout > Logout </a>
   </div>
+  <h1> YOCTO </h1> 
   <div id="body_div">
     <div id="conversations">
       {% for post in posts %}
@@ -28,7 +30,7 @@
       {% endfor %}
       </div>
       <div id="google-results">
-      {{ results }}
+      {{ results | safe }}
       </div>
     </div>
 
