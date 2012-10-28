@@ -31,6 +31,16 @@ class Post(db.Model):
         self.votes = int(votes)
         return cls.all().filter( "votes <", vote )
 
+    def vote(self, vote_type):
+        
+        if vote_type == "plus":
+            self.votes += 1
+        elif vote_type == "minus":
+            self.votes -= 1
+        else:
+            pass
+
+
     def render(self):
         return commonUtils.render_template('post.html', post = self )
 

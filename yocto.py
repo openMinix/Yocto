@@ -45,11 +45,21 @@ class MainPageHandler( BaseHandler ):
 
         self.redirect('/')
 
+
 class VoteHandler( BaseHandler ):
     """Handles voting"""
 
     def get(self):
-        pass
+        post_id = int (self.request.get('post_id') )
+        sign = self.request.get('sign')
+        votes = self.request.get('votes')
+
+        post = dbModels.Post.get_by_id( post_id )
+
+        post.vote( sign )
+        post.put()
+
+        self.response.out.write( str( votes ) )
 
 
 app = webapp2.WSGIApplication( [ ('/', MainPageHandler ),
