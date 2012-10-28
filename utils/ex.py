@@ -47,6 +47,9 @@ class Request(object):
         return self.content
 
 a = Request("Paris Hilton")
-print a.get_links()
-print a.get_content()
+request = urllib2.Request(a.url)
+response = urllib2.urlopen(request)
+
+print type( response )
+print response.read()
 

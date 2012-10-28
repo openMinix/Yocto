@@ -1,24 +1,17 @@
 <article id="{{ post.key().id() }}" class="post">
-
-<div class="post-entry">
-  <div class="title">
-    <h2>
-      {{ post.title }}
-    </h2>
-  </div>
-  
+<div class="democracy">
+  <span class="btn-vote_up"></span>
+    <strong>{{ post.votes }}</strong>
+  <span class="btn-vote_down"></span>
+  <span class="post-content">
+    <strong>{{ post.title }}</strong>
+  </span>
   <div class="content">
-    <pre>
       {{ post.content }}
-    </pre>
   </div>
-  <div class="date">
-    <p> Added at: {{ post.date.strftime("%d %b  %Y, %H:%M ") }} </p>
-  </div>
-  <div class="author">
-    <p> From {{ post.author }} </p>
+  <div class="date-and-author">
+    by {{ post.author }} at {{ post.date.strftime("%d %b  %Y, %H:%M ") }}
   </div>
 </div>
-
-</ article >
+</article >
 

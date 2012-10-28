@@ -8,7 +8,7 @@ class Post(db.Model):
     title   = db.StringProperty()
     author  = db.StringProperty()
     date    = db.DateTimeProperty( auto_now_add = True )
-    votes   = db.IntegerProperty()
+    votes   = db.IntegerProperty( default = 0 )
 
     @classmethod
     def get_by_name(cls, name):
@@ -30,6 +30,16 @@ class Post(db.Model):
         """Returns posts with less votes than ' votes '"""
         self.votes = int(votes)
         return cls.all().filter( "votes <", vote )
+
+    def vote(self, vote_type):
+        
+        if vote_type == "plus":
+            self.votes += 1
+        elif vote_type == "minus":
+            self.votes -= 1
+        else:
+            pass
+
 
     def render(self):
         return commonUtils.render_template('post.html', post = self )

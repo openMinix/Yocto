@@ -3,8 +3,12 @@
 <head>
   <title>Yocto</title>
   <link href="../css/yocto_style.css" rel="stylesheet" type="text/css" />
+  <link href="../css/democracy.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="../js/limit_input.js"></script>
+  <script type="text/javascript" src="../js/jquery.js"></script>
+  <script type="text/javascript" src="../js/vote.js"></script>
 </head>
+
 
 <body>
   <div id="navbar">
@@ -14,24 +18,24 @@
     <div id="conversations">
       {% for post in posts %}
         {{ post.render() | safe }}
-        <br/><br/><hr/>
+      <hr/>
       {% endfor %}
     </div>
     <div id="related">
-		{% for link in links%}
-		<a href = {{ link }}>
-			{{ link }}
-		</a>
-		<p>	{{ contents[links.index(link)] | safe}}</p>
-		{% endfor %}
-
+    {% for link in links%}
+      <a href = {{ link }}>
+      {{ link }}
+      </a>
+      <p> {{ contents[links.index(link)] | safe}}</p>
+    {% endfor %}
     </div>
+
     <form method="post" id="input">
         <textarea rows="1" name="content" id="content"
         onkeydown="limitText(this.form.content, this.form.countdown, 100);"
-        onkeyup="limitText(this.form.content, this.form.countdown, 100);">
-        ceva</textarea>
-        <input readonly type="text" name="countdown" size="3"
+        onkeyup="limitText(this.form.content, this.form.countdown,
+        100);"></textarea>
+        <input readonly type="text" id="countdown" size="3"
         value="100">
         </br>
         <label>title:</label> <input type="text" name="title" id="title">
@@ -43,4 +47,5 @@
     this is the footer
   </div>
 </body>
+  <script type="text/javascript" src="../js/onload.js"></script>
 </html>

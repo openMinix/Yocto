@@ -61,9 +61,10 @@ class Request(object):
         self.content = []
 
         results = simplejson.load(response)
-        for value in results["responseData"]["results"]:
-            self.links.append(value["url"])
-            self.content.append(value["content"])
+        if results != None and results["responseData"] != None:
+            for value in results["responseData"]["results"]:
+                self.links.append(value["url"])
+                self.content.append(value["content"])
 
     def get_links(self):
         return self.links
