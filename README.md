@@ -1,4 +1,4 @@
 Yocto
 =====
 
-Hackathon project.
+Interaction project.
